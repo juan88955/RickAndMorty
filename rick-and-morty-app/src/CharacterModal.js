@@ -7,7 +7,7 @@ function CharacterModal({ character, onClose }) {
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-lg p-4 max-w-sm w-full relative"
+        className="bg-white rounded-lg p-8 max-w-sm w-full relative"
         onClick={e => e.stopPropagation()}
       >
         <button 

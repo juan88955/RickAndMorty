@@ -25,23 +25,25 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">Personajes de Rick and Morty</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {characters.map(character => (
-          <CharacterCard 
-            key={character.id} 
-            character={character} 
-            onClick={() => handleCardClick(character)}
+    <div className="min-h-screen bg-slate-200">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-center mb-8">Personajes de Rick and Morty</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {characters.map(character => (
+            <CharacterCard 
+              key={character.id} 
+              character={character} 
+              onClick={() => handleCardClick(character)}
+            />
+          ))}
+        </div>
+        {selectedCharacter && (
+          <CharacterModal 
+            character={selectedCharacter} 
+            onClose={closeModal}
           />
-        ))}
+        )}
       </div>
-      {selectedCharacter && (
-        <CharacterModal 
-          character={selectedCharacter} 
-          onClose={closeModal}
-        />
-      )}
     </div>
   );
 }
